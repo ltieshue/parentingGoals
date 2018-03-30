@@ -4,80 +4,121 @@
     <meta charset="UTF-8"/>
     <title>Parenting Goals Main Page</title>
 
-    <link rel="stylesheet" th:href="@{/style.css}"/>
+
+
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
 
     <script type="text/javascript" th:src="@{/jquery.js}"></script>
     <script type="text/javascript" th:src="@{/css/js/bootstrap.bundle.js}"></script>
     <script type="text/javascript" th:src="@{/css/js/bootstrap.js}"></script>
     <script type="text/javascript" th:src="@{/client.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/client2.js}"></script>-->
 
 </head>
-<body>
- <h1>PARENTING GOALS [###]</h1>
 
+<body style = "background: url(https://cdn.pixabay.com/photo/2015/11/02/18/32/water-1018808_960_720.jpg); background-size: 100%;">
+ <h1>PARENTING GOALS [###]</h1>
+<span>
     <input type="text" id = "txtDate" placeholder="Enter Date"/>
     <input type="text" id = "txtTime" placeholder="Enter Time"/>
     <input type="text" id = "txtName" placeholder="Enter Name"/>
     <input type="text" id = "txtLoca" placeholder="Enter Location"/>
 
-    <button id = "createGame" >Create an Event</button>
-    <button id = "viewHist" >View History</button>
+    <button id = "postAGame" class="btn btn-primary">Post 1 Game-Only</button>
+    <button id = "createGame" class="btn btn-info">Post 1 Game and View History</button>
+    <button id = "viewHist" class="btn btn-success">View History-Only</button>
+    <button id = "navGlos" class="btn btn-secondary">Soccer Glossary-Exit</button>
+    <!--<button id = "navPark" class="btn btn-secondary">Park Links</button>-->
+
+</span>
 
 
 
- <div>
-     <div id="fullGameList" class="container"></div>
-</div>
+ <div id="fullGameList" class="container">
+
+ </div>
+
+ <div id="gameOne" class="container">
+
+ </div>
 
 
  <div>
      <div id="fullPlayList" class="container"></div>
  </div>
 
- <div class="dropdown">
-     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Key Plays
-     </button>
-     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-         <a class="dropdown-item" href="#">Offense | Scored</a>
-         <a class="dropdown-item" href="#">Offense | Assist</a>
-         <a class="dropdown-item" href="#">General | Yellow Card</a>
-         <a class="dropdown-item" href="#">General | Red Card</a>
-         <a class="dropdown-item" href="#">General | Penalty Against</a>
-         <a class="dropdown-item" href="#">General | Penalty Kick</a>
-         <a class="dropdown-item" href="#">Defense | Primary Blocker</a>
-         <a class="dropdown-item" href="#">Defense | Secondary Blocker</a>
-    </div>
- </div>
-
- <div class="dropdown1">
-     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Players '17-'18 Season
-     </button>
-     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-         <a class="dropdown-item" href="#">Ben     - 27</a>
-         <a class="dropdown-item" href="#">Brevin  - 06</a>
-         <a class="dropdown-item" href="#">Bryn    - 63</a>
-         <a class="dropdown-item" href="#">Connor  - 37</a>
-         <a class="dropdown-item" href="#">Dominic - 17</a>
-         <a class="dropdown-item" href="#">Jakey   - 24</a>
-         <a class="dropdown-item" href="#">Joey    - 72</a>
-         <a class="dropdown-item" href="#">Josh    - 22</a>
-         <a class="dropdown-item" href="#">Julius  - 08</a>
-         <a class="dropdown-item" href="#">Keahi   - 14</a>
-         <a class="dropdown-item" href="#">Logan   - 07</a>
-         <a class="dropdown-item" href="#">Luke    - 00</a>
-         <a class="dropdown-item" href="#">Nick C. - 03</a>
-         <a class="dropdown-item" href="#">Nick P. - 10</a>
-         <a class="dropdown-item" href="#">Tyler   - 25</a>
-         <a class="dropdown-item" href="#">Wyatt   - 09</a>
-         <a class="dropdown-item" href="#">Zach    - 73</a>
-
-     </div>
- </div>
-
-
 
 </body>
 </html>
+
+
+<!--Original code for dropdown-->
+ <!--<div class="dropdown">-->
+     <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+         <!--Key Plays-->
+     <!--</button>-->
+     <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+         <!--<a class="dropdown-item" href="#">Offense | Scored</a>-->
+         <!--<a class="dropdown-item" href="#">Offense | Assist</a>-->
+         <!--<a class="dropdown-item" href="#">General | Yellow Card</a>-->
+         <!--<a class="dropdown-item" href="#">General | Red Card</a>-->
+         <!--<a class="dropdown-item" href="#">General | Penalty Against</a>-->
+         <!--<a class="dropdown-item" href="#">General | Penalty Kick</a>-->
+         <!--<a class="dropdown-item" href="#">Defense | Primary Blocker</a>-->
+         <!--<a class="dropdown-item" href="#">Defense | Secondary Blocker</a>-->
+    <!--</div>-->
+ <!--</div>-->
+
+ <!--<div class="dropdown1">-->
+     <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+         <!--Players '17-'18 Season-->
+     <!--</button>-->
+     <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">-->
+         <!--<a class="dropdown-item" href="#">Ben     - 27</a>-->
+         <!--<a class="dropdown-item" href="#">Brevin  - 06</a>-->
+         <!--<a class="dropdown-item" href="#">Bryn    - 63</a>-->
+         <!--<a class="dropdown-item" href="#">Connor  - 37</a>-->
+         <!--<a class="dropdown-item" href="#">Dominic - 17</a>-->
+         <!--<a class="dropdown-item" href="#">Jakey   - 24</a>-->
+         <!--<a class="dropdown-item" href="#">Joey    - 72</a>-->
+         <!--<a class="dropdown-item" href="#">Josh    - 22</a>-->
+         <!--<a class="dropdown-item" href="#">Julius  - 08</a>-->
+         <!--<a class="dropdown-item" href="#">Keahi   - 14</a>-->
+         <!--<a class="dropdown-item" href="#">Logan   - 07</a>-->
+         <!--<a class="dropdown-item" href="#">Luke    - 00</a>-->
+         <!--<a class="dropdown-item" href="#">Nick C. - 03</a>-->
+         <!--<a class="dropdown-item" href="#">Nick P. - 10</a>-->
+         <!--<a class="dropdown-item" href="#">Shane   - 05</a>-->
+         <!--<a class="dropdown-item" href="#">Tyler   - 25</a>-->
+         <!--<a class="dropdown-item" href="#">Wyatt   - 09</a>-->
+         <!--<a class="dropdown-item" href="#">Zach    - 73</a>-->
+     <!--</div>-->
+<!--</div>-->
+
+ <!--<div class="testDropdown1">-->
+     <!--<select id="list">-->
+         <!--<option value="Select Play">Select Play </option>-->
+         <!--<option value="Offense | Scored">Offense | Scored</option>-->
+         <!--<option value="Offense | Assist">Offense | Assist</option>-->
+         <!--<option value="General | Yellow Card">General | Yellow Card</option>-->
+         <!--<option value="General | Red Card">General | Red Card</option>-->
+         <!--<option value="General | Penalty Against">General | Penalty Against</option>-->
+         <!--<option value="General | Penalty Kick">General | Penalty Kick</option>-->
+         <!--<option value="Defense | Primary Blocker">Defense | Primary Blocker</option>-->
+         <!--<option value="Defense | Secondary Blocker">Defense | Secondary Blocker</option>-->
+     <!--</select>-->
+ <!--</div>-->
+
+     <!--<div class="testDropdown1">-->
+         <!--<select id="list2">-->
+             <!--<option value="Select Player">Select Player </option>-->
+             <!--<option value="Ben     - 27">Ben     - 27 </option>-->
+             <!--<option value="Brevin  - 06">Brevin  - 06</option>-->
+             <!--<option value="Shane   - 05">Shane   - 05 </option>-->
+        <!--</select>-->
+     <!--</div>-->
+   <!--</div>-->
+
+
+

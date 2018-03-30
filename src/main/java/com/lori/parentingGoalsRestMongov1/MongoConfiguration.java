@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 public class MongoConfiguration extends AbstractMongoConfiguration{
     @Override
     protected String getDatabaseName(){
-        return "simpleActionExample";
+        return "simpleGameExample";
     }
 
     @Override

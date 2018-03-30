@@ -190,46 +190,15 @@ function appendGame(gameList){
 
             // merged original append button with original drop down button
             el.append('<div class="dropdown">' +
-                '<select id="list" class="custom-select">' +
-                '<option value="Select Play">Select Play </option>' +
-                '<option value="Offense | Sco">Offense | Scored</option>' +
-                '<option value="Offense | Ast">Offense | Assist</option>' +
-                '<option value="General | Yel">General | Yellow Card</option>' +
-                '<option value="General | Red">General | Red Card</option>' +
-                '<option value="General | Pen">General | Penalty Against</option>' +
-                '<option value="General | PeK">General | Penalty Kick</option>' +
-                '<option value="Defense | Pri">Defense | Primary Blocker</option>' +
-                '<option value="Defense | Sec">Defense | Secondary Blocker</option>' +
-                '</select>' +
-                '</div>');
+                '<input type="text" id = "detailPlay" placeholder="Play"/>' +
+               '</div>');
 
             el.children().last().data("id", game.id);
 
 
             el.append('<div class="testDropdown1"> ' +
-                '<select id="list2" class="custom-select" onchange="postPlay()">' +
-                '<option value="Select Player">Select Player </option>' +
-                '<option value="Ben"    >Ben     - 27 </option>' +
-                '<option value="Brevin" >Brevin  - 06 </option>' +
-                '<option value="Bryn"   >Bryn    - 63 </option>' +
-                '<option value="Connor" >Connor  - 37</option>' +
-                '<option value="Dominic">Dominic - 17 </option>' +
-                '<option value="Jakey"  >Jakey   - 24</option>' +
-                '<option value="Joey"   >Joey    - 72 </option>' +
-                '<option value="Josh"   >Josh    - 22 </option>' +
-                '<option value="Julius" >Julius  - 08 </option>' +
-                '<option value="Keahi"  >Keahi   - 14</option>' +
-                '<option value="Logan"  >Logan   - 07</option>' +
-                '<option value="Luke"   >Luke    - 00 </option>' +
-                '<option value="Nick C.">Nick C. - 03</option>' +
-                '<option value="Nick P.">Nick P. - 10 </option>' +
-                '<option value="Shane"  >Shane   - 05</option>' +
-                '<option value="Tyler"  >Tyler   - 25 </option>' +
-                '<option value="Wyatt"  >Wyatt   - 09 </option>' +
-                '<option value="Zach"   >Zach    - 73 </option>' +
-                '</select>' +
+                '<input type="text" id = "detailPlayer" placeholder="Player"/>' +
                 '</div>');
-
 
             el.children().last().data("id", game.id);
 
@@ -254,16 +223,7 @@ function appendGame(gameList){
     }
 
     function postPlay() {
-        var selectedValue = document.getElementById("list").value;
-        console.log(selectedValue);
-
-
-        var selectedValue = document.getElementById("list2").value;
-        console.log(selectedValue);
-
-
-
-        $.ajax({
+            $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -273,7 +233,7 @@ function appendGame(gameList){
                 detailPlayer: $("#txtPlayer").val()
             }),
             success: function (response) {
-                // getPlays();
+                getPlays();
             }
         });
 
