@@ -14,15 +14,47 @@ function enabled() {
     $("#fullGameList").on("click", ".deleteBtn", deleteGame);
     $("#navGlos").on("click", goGlos);
     $("#submPlay").on("click", postPlay);
+    // $("#hideDet").on("click", hideDetail);
+    $("#goHome").on("click", gohome);
+    $("#goSoccer").on("click", toSoccer);
+    $("#goDance").on("click", toDance);
+
+    $("#postADance").on("click", postOneDance);
+    $("#createDance").on("click", postDance);
+    $("#viewDance").on("click", getDances);
+    $("#fullDanceList").on("click", ".deleteBtnD", deleteDance);
+    $("#navGlosD").on("click", goGlosD);
+    $("#submDance").on("click", postDance);
 
 
-}
+
+
+
+
+   }
+
+    function gohome() {
+        window.location.href = "/";
+    }
+
+   function toSoccer() {
+       window.location.href = "index";
+
+   }
+
+    function toDance() {
+        window.location.href = "dance";
+
+    }
+
+
 
 //postOneGame function - Lori created to have just the 1 new entry appear of DOM when the
 // 'postAGame' button is clicked but is not working
 function postOneGame(event){
     event.preventDefault();
     console.log("Post One Game")
+    console.log('game.List[0]')
     $.ajax({
         type: "POST",
         contentType: "application/json; charset=utf-8",
@@ -96,25 +128,18 @@ function deleteGame (){
         }
     });
 }
-///DOM Methods - NOTE: the appendGame NOT posting anything to the DOM (as of 3/29/18)
-function appendGame(gameList){
-    $("#gameOne").empty();
-    // for (var i = 0; i ==gameList.length; i++) {
-    //     var game = gameList[i];
+///DOM Methods - NOTE: the appendGame NOT posting anything to the DOM (as of 3/31/18)
+function appendGame(){
+    $("#fullGameList").empty();
+        $("#fullGameList").append("<div class='container'></div>");
 
-    for (var i = 0; i < gameList.length; i++) {
-        var game = gameList[i];
+    var ell = this.data;
 
-
-        $("#gameOne").append("<div class='container'></div>");
-        var el = $("#gameOne").last();
-
-        el.append("<div class='col-md-10 col-md-offset-1'></div>");
-        el = el.last();
-        el.append("<span>" + "Date: " + game.gameDate + " Time: " + game.gameTime + " Descr: " + game.gameName + " Location: " + game.gameLoca + "<span>");
+        ell.append("<div class='col-md-10 col-md-offset-1'></div>");
+        ell.append("<span>" + "Date: " + this.data.gameDate + " Time: " + this.data.gameTime + " Descr: " + this.data.gameName + " Location: " + this.data.gameLoca + "<span>");
 
         // merged original append button with original drop down button
-        el.append('<div class="dropdown">' +
+        ell.append('<div class="dropdown">' +
             '<select id="list" class="custom-select">' +
             '<option value="Select Play">Select Play </option>' +
             '<option value="Offense | Sco">Offense | Scored</option>' +
@@ -128,11 +153,11 @@ function appendGame(gameList){
             '</select>' +
             '</div>');
 
-        el.last().data("id", game.id);
+        ell.last().data("id", this.data.id);
 
 
-        el.append('<div class="testDropdown1"> ' +
-            '<select id="list2" class="custom-select" onchange="postPlay()">' +
+        ell.append('<div class="testDropdown1"> ' +
+            '<select id="list2" class="custom-select" onchange="postOneGame()">' +
             '<option value="Select Player">Select Player </option>' +
             '<option value="Ben"    >Ben     - 27 </option>' +
             '<option value="Brevin" >Brevin  - 06 </option>' +
@@ -156,23 +181,16 @@ function appendGame(gameList){
             '</div>');
 
 
-        el.last().data("id", game.id);
+        ell.last().data("id", this.data.id);
 
 
-        el.append('<button class="btn btn-primary submPlay">Submit Play/Player</button>');
-        el.last().data("id", game.id);
+        ell.append('<button class="btn btn-primary submPlay">Submit Play/Player</button>');
+        ell.last().data("id", this.id);
 
-        el.append('<button class="btn btn-warning deleteBtn">Delete</button>');
-        el.last().data("id", game.id); //Imprints, data-id="game.id" onto the button element
+        ell.append('<button class="btn btn-warning deleteBtn">Delete</button>');
+        ell.last().data("id", this.id); //Imprints, data-id="game.id" onto the button element
 
 
-        // el.append('<button id = "viewStat" >View Stats</button>');
-        // el.children().last().data("id", game.id);
-        //
-        // el.append('<button id = "hideStat" >Hide Stats</button>');
-        // el.children().last().data("id", game.id);
-
-    }
 }
 
 ///DOM Methods
@@ -184,9 +202,13 @@ function appendGame(gameList){
             $("#fullGameList").append("<div class='container'></div>");
             var el = $("#fullGameList").children().last();
 
-            el.append("<div class='col-md-10 col-md-offset-1'></div>");
+            el.append("<div class='col-md-10'></div>");
             el = el.children().last();
-            el.append("<span>" + "Date: " + game.gameDate + " Time: " + game.gameTime + " Descr: " + game.gameName + " Location: " + game.gameLoca + "<span>");
+            el.append("<span>" + "Date: " + game.gameDate + " Time: " + game.gameTime + " Descr: " + game.gameName + " Location: " + game.gameLoca + "     " + "<span>");
+
+            el.append('<button class="btn btn-warning deleteBtn">Delete Game</button>');
+            el.children().last().data("id", game.id); //Imprints, data-id="game.id" onto the button element
+
 
             // merged original append button with original drop down button
             el.append('<div class="dropdown">' +
@@ -233,12 +255,9 @@ function appendGame(gameList){
 
             el.children().last().data("id", game.id);
 
-
             el.append('<button class="btn btn-primary submPlay">Submit Play/Player</button>');
             el.children().last().data("id", game.id);
 
-            el.append('<button class="btn btn-warning deleteBtn">Delete</button>');
-            el.children().last().data("id", game.id); //Imprints, data-id="game.id" onto the button element
 
 
             // el.append('<button id = "viewStat" >View Stats</button>');
@@ -287,13 +306,226 @@ function appendGame(gameList){
         console.log("Go Glossary was clicked")
         window.location.href = 'https://www.socceramerica.com/glossary/';
     }
+//
+//
 
-    function getPlays() {
-        console.log("Get Plays")
+//postOneDance function - Lori created to have just the 1 new entry appear of DOM when the
+// 'postADance' button is clicked but is not working
+function postOneDance(event){
+    event.preventDefault();
+    console.log("Post One Dance")
+    $.ajax({
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        url: "/dances",
+        data: JSON.stringify({
+            danceDate: $("#txtDateD").val(),
+            danceTime: $("#txtTimeD").val(),
+            danceName: $("#txtNameD").val(),
+            danceLoca: $("#txtLocaD").val()
+        }),
+        success: function(response){
+            console.log("Post response" + response);
+            console.log("this data" + this.data);
+            appendDance();
+
+        }
+    });
+    $("#txtDateD").val("");
+    $("#txtTimeD").val("");
+    $("#txtNameD").val("");
+    $("#txtLocaD").val("");
+}
+
+
+//AJAX Request
+function getDances () {
+    console.log("View History/Get Dances")
+    $.ajax({
+        type: "GET",
+        url: "/dances",
+        success: function (response) {
+            appendDances(response._embedded.dances);
+        }
+    });
+}
+
+
+
+
+function deleteDance (){
+    console.log("deleteDance")
+    $.ajax({
+        type: "DELETE",
+        url: "/dances/" + $(this).data("id"),
+        success: function (response) {
+            getDances();
+        }
+    });
+}
+///DOM Methods - NOTE: the appendDance NOT posting anything to the DOM (as of 3/29/18)
+function appendDance(danceList){
+    console.log("Append Dance")
+    $("#danceOne").empty();
+    // for (var i = 0; i ==danceList.length; i++) {
+    //     var dance = danceList[i];
+
+    for (var i = 0; i < danceList.length; i++) {
+        var dance = danceList[i];
+
+
+        $("#danceOne").append("<div class='container'></div>");
+        var el = $("#danceOne").last();
+
+        el.append("<div class='col-md-10 col-md-offset-1'></div>");
+        el = el.last();
+        el.append("<span>" + "Date: " + game.gameDate + " Time: " + game.gameTime + " Descr: " + game.gameName + " Location: " + game.gameLoca + "<span>");
+
+        // merged original append button with original drop down button
+        el.append('<div class="dropdownD">' +
+            '<select id="listD" class="custom-select">' +
+            '<option value="Level">Level </option>' +
+            '<option value="Bad">Bad </option>' +
+            '<option value="Good">Good </option>' +
+            '<option value="Great">Great</option>' +
+            '<option value="Awesome">Awesome</option>' +
+           '</select>' +
+            '</div>');
+
+        el.last().data("id", dance.id);
+
+
+        el.append('<div class="testDropdownD"> ' +
+            '<select id="list2D" class="custom-select" onchange="postOneDance">' +
+            '<option value="Dancer">Select Dancer </option>' +
+            '<option value="Alex" >Alex</option>' +
+            '<option value="Jane" >Jane</option>' +
+            '<option value="Mary" >Mary</option>' +
+            '<option value="Susan">Susan</option>' +
+            '</select>' +
+            '</div>');
+
+
+        el.last().data("id", dance.id);
+
+
+        el.append('<button class="btn btn-primary submDance">Submit Level/Dancer</button>');
+        el.last().data("id", dance.id);
+
+        el.append('<button class="btn btn-warning deleteBtnD">Delete</button>');
+        el.last().data("id", dance.id); //Imprints, data-id="dance.id" onto the button element
+
+    }
+}
+
+///DOM Methods
+function appendDances(danceList) {
+    $("#fullDanceList").empty();
+    for (var i = 0; i < danceList.length; i++) {
+        var dance = danceList[i];
+
+        $("#fullDanceList").append("<div class='container'></div>");
+        var el = $("#fullDanceList").children().last();
+
+        el.append("<div class='col-md-10'></div>");
+        el = el.children().last();
+        el.append("<span>" + "Date: " + dance.danceDate + " Time: " + dance.danceTime + " Descr: " + dance.danceName + " Location: " + dance.danceLoca + "     " + "<span>");
+
+        el.append('<button class="btn btn-warning deleteBtnD">Delete</button>');
+        el.children().last().data("id", dance.id); //Imprints, data-id="dance.id" onto the button element
+
+
+        // merged original append button with original drop down button
+        el.append('<div class="entryField2">' +
+            '<input type="text" id = "attitudeDance" placeholder="Dance"/>' +
+            '</div>');
+
+        el.children().last().data("id", dance.id);
+
+
+        el.append('<div class="entryField2"> ' +
+            '<input type="text" id = "attitudeDancer" placeholder="Dancer"/>' +
+            '</div>');
+        el.children().last().data("id", dance.id);
+
+        el.append('<button class="btn btn-primary submDance">Submit Level/Dancer</button>');
+        el.children().last().data("id", dance.id);
+
+    }
+
+
+}
+
+function postDance() {
+    var selectedValue = document.getElementById("listD").value;
+    console.log(selectedValue);
+
+    var selectedValue = document.getElementById("list2D").value;
+    console.log(selectedValue);
+
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        url: "/detailD",
+        data: JSON.stringify({
+            attitudeDance: $("#txtAttitudeDance").val(),
+            attitudeDancer: $("#txtAttitudeDancer").val()
+        }),
+        success: function (response) {
+            getDances();
+        }
+    });
+
+    $("#txtAttitudeDance").val("");
+    $("#txtAttitudeDancer").val("");
+
+}
+
+
+function goGlosD(event) {
+    event.preventDefault();
+    console.log("Go D Glossary was clicked")
+    window.location.href = 'http://www.centralhome.com/ballroomcountry/dance_terms.htm';
+}
+
+    function getAttitudeDances() {
+        console.log("Get Detail Dances");
 
 
    }
 
+
+
+
+
+
+
+
+
+
+
+
+        // function hideDetail(gameList) {
+        //     console.log("Hide Detail was clicked")
+        //     $("#fullGameList").empty();
+        //     for (var i = 0; i < gameList.length; i++) {
+        //         var game = gameList[i];
+        //
+        //         $("#fullGameList").append("<div class='container'></div>");
+        //         var el = $("#fullGameList").children().last();
+        //
+        //         el.append("<div class='col-md-10'></div>");
+        //         el = el.children().last();
+        //         el.append("<span>" + "Date: " + game.gameDate + " Time: " + game.gameTime + " Descr: " + game.gameName + " Location: " + game.gameLoca + "     " + "<span>");
+        //
+        //         el.append('<button class="btn btn-warning deleteBtn">Delete Game</button>');
+        //         el.children().last().data("id", game.id); //Imprints, data-id="game.id" onto the button element
+        //
+        //     }
+        // }
 
 
 

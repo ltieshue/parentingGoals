@@ -1,11 +1,37 @@
-h1{
+h4, .fullGameList, .col-md-10{
     font-family: "Comic Sans MS";
-    font-size: xx-large;
-    color: white;
+    color: #e67a00;
+}
+
+h5, .pinkFont {
+    color: #e83e8c;
+}
+
+.col-lg-12{
+    width: 960px;
+    border: 2px #5e8d00;
+    padding-top: 225px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+
+h3, h6{
+    color: #5e8d00;
+    font-weight: bolder;
 }
 
 body{
     font-family: "Comic Sans MS";
     font-size: medium;
     color: white;
+}
+
+.container {
+    float: left;
+}
+
+.testDropdown1, .custom-select {
+    border: #0f0f0f;
 }

@@ -6,7 +6,8 @@
 
 
 
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <!--<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap2.css}"/>
     <link rel="stylesheet" th:href="@{/style.css}"/>
 
     <script type="text/javascript" th:src="@{/jquery.js}"></script>
@@ -18,20 +19,29 @@
 </head>
 
 <body style = "background: url(https://i.pinimg.com/564x/5e/b4/97/5eb497b62c8f320d870b625241d903e7.jpg); background-size: 100%;">
- <h1>PARENTING GOALS [###]</h1>
+ <h4>PARENTING GOALS - Soccer</h4>
+ <div>
 <span>
-    <input type="text" id = "txtDate" placeholder="Enter Date"/>
+    <input type="text" id = "txtDate" placeholder="Enter Game Date"/>
     <input type="text" id = "txtTime" placeholder="Enter Time"/>
     <input type="text" id = "txtName" placeholder="Enter Name"/>
     <input type="text" id = "txtLoca" placeholder="Enter Location"/>
-
+</span>
+ </div>
+ <p></p>
+ <p></p>
+ <p></p>
+ <div>
+ <span>
     <button id = "postAGame" class="btn btn-primary">Post 1 Game-Only</button>
     <button id = "createGame" class="btn btn-info">Post 1 Game and View History</button>
     <button id = "viewHist" class="btn btn-success">View History-Only</button>
-    <button id = "navGlos" class="btn btn-secondary">Soccer Glossary-Exit</button>
+    <button id = "goHome" class="btn btn-primary">To Main Page</button>
+    <button id = "navGlos" class="btn btn-danger">Soccer Glossary-Exit</button>
     <!--<button id = "navPark" class="btn btn-secondary">Park Links</button>-->
-
+    <!--<button id = "hideDet" class="btn btn-warning">Hide Game Detail</button>-->
 </span>
+ </div>
 
 
 

@@ -1,5 +1,6 @@
 package com.lori.parentingGoalsRestMongov1;
 
+
 import com.lori.parentingGoalsRestMongov1.model.Game;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -12,4 +13,6 @@ public class RestDataConfig extends RepositoryRestConfigurerAdapter{
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.exposeIdsFor(Game.class);
     }
+
+
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Parenting Goals Dance Page</title>
+
+
+
+    <!--<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap2.css}"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+
+    <script type="text/javascript" th:src="@{/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/css/js/bootstrap.bundle.js}"></script>
+    <script type="text/javascript" th:src="@{/css/js/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/client.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/client2.js}"></script>-->
+
+</head>
+<!--https://img.washingtonpost.com/wp-apps/imrs.php?src=https://img.washingtonpost.com/rf/image_908w/2010-2019/WashingtonPost/2015/05/17/Interactivity/Images/iStock_000027154118_Large1431905651.jpg&w=480-->
+<!--https://theidgroup.co.uk/wp-content/uploads/2014/09/10105949326_167deb89bc_z.jpg-->
+<body style = "background: url(http://s1.favim.com/orig/20/ballet-black-and-white-dance-dancer-shoes-Favim.com-203849.jpg); background-size: 100%;">
+ <h5>PARENTING GOALS - Dance</h5>
+ <div>
+<span>
+    <input type="text" id = "txtDateD" placeholder="Enter Event Date"/>
+    <input type="text" id = "txtTimeD" placeholder="Enter Time"/>
+    <input type="text" id = "txtNameD" placeholder="Enter Name"/>
+    <input type="text" id = "txtLocaD" placeholder="Enter Location"/>
+</span>
+ </div>
+
+ <div>
+     <span>
+    <button id = "postADance" class="btn btn-primary">Post 1 Event-Only</button>
+    <button id = "createDance" class="btn btn-info">Post 1 Event and View History</button>
+    <button id = "viewHistD" class="btn btn-success">View History-Only</button>
+    <button id = "goHome" class="btn btn-primary">To Main Page</button>
+    <button id = "navGlosD" class="btn btn-danger">Dance Glossary-Exit</button>
+
+
+</span>
+ </div>
+
+
+
+ <div id="fullDanceList" class="container">
+</div>
+
+<div id="pinkFont">
+ <span> Date: 1/13/18 Time: 2:00 Descr: Recital  Location: Home Studio
+ <button class="btn btn-warning deleteBtn">Delete</button>
+ </span>
+     </div>
+ <p></p>
+ <p></p>
+<div>
+    <input type="text" id = "attitudeDance" placeholder="Dance"/>
+    <input type="text" id = "attitudeDancer" placeholder="Dancer"/>
+    <button class="btn btn-primary submDance">Submit Dance/Dancer</button>
+</div>
+ <p></p>
+ <p></p>
+ <p></p>
+ <p></p>
+ <div class="pinkFont">
+ <span> Date: 1/13/18  Time: 2:00 Descr: Recital  Location: Home Studio
+ <button class="btn btn-warning deleteBtnD">Delete</button>
+ </span>
+     <p>Dance: First Place teen modern  Dancer: Alex Tie</p>
+ </div>
+
+ <div class="pinkFont">
+     <p></p>
+     <p></p>
+ <span class="pinkFont"> Date: 2/24/18  Time: 2:00 Descr: Recital   Location: Rosa's Studio
+ <button class="btn btn-warning deleteBtnD">Delete</button>
+ </span>
+  <p>Dance: Excellent performance-No placement  Dancer: Alex Tie</p>
+ </div>
+    <p></p>
+    <p></p>
+ <div class="pinkFont">
+ <span> Date: 3/30/18  Time: 2:00 Descr: Recital   Location: Tucson Studio
+ <button class="btn btn-warning deleteBtnD">Delete</button>
+ </span>
+     <p> Dance: Exhibition  Dancer: Alex Tie</p>
+ </div>
+
+</body>
+</html>
+

@@ -19,4 +19,11 @@ public class MongoConfiguration extends AbstractMongoConfiguration{
     public Mongo mongo()throws Exception{
         return new MongoClient("127.0.0.1", 27017);
     }
+//    @Override
+//    protected String getDatabaseName(){
+//        return "simpleDanceExample";
+//    }
+
+
+
 }
