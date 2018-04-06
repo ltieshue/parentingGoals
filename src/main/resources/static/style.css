@@ -9,8 +9,8 @@ h5, .pinkFont {
 
 .col-lg-12{
     width: 960px;
-    border: 2px #5e8d00;
-    padding-top: 225px;
+    /*border: 1px #5e8d00;*/
+    padding-top: 150px;
     margin: 0 auto;
     text-align: center;
 

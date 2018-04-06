@@ -128,7 +128,7 @@ function deleteGame (){
         }
     });
 }
-///DOM Methods - NOTE: the appendGame NOT posting anything to the DOM (as of 3/29/18)
+///DOM Methods - NOTE: the appendGame NOT posting anything to the DOM (as of 3/31/18)
 function appendGame(){
     $("#fullGameList").empty();
         $("#fullGameList").append("<div class='container'></div>");
